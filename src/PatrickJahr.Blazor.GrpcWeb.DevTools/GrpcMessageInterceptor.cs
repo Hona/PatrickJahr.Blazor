@@ -46,29 +46,15 @@ public partial class GrpcMessageInterceptor : Interceptor
 
     private async Task<Metadata> HandleServerStreamRequest<TRequest>(Task<Metadata> metaData, TRequest request, string method)
     {
-        try
-        {
-            var result = await metaData;
-            await _jsRuntime.HandleGrpcServerStreamRequest(method, request);
-            return result;
-        }
-        catch (Exception ex)
-        {
-            throw new InvalidOperationException("Custom error", ex);
-        }
+        var result = await metaData;
+        await _jsRuntime.HandleGrpcServerStreamRequest(method, request);
+        return result;
     }
 
     private async Task<TResponse> HandleUnaryCall<TResponse, TRequest>(string method, TRequest request, Task<TResponse> inner)
     {
-        try
-        {
-            var result = await inner;
-            await _jsRuntime.HandleGrpcRequest(method, request, result);
-            return result;
-        }
-        catch (Exception ex)
-        {
-            throw new InvalidOperationException("Custom error", ex);
-        }
+        var result = await inner;
+        await _jsRuntime.HandleGrpcRequest(method, request, result);
+        return result;
     }
 }
