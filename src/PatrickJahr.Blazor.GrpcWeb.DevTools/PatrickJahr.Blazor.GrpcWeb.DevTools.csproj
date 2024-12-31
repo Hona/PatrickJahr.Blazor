@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net7.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>net7.0;net8.0;net9.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
     <Title>Blazor gRPC-Web Developer Tools Extention</Title>
     <Description>Extension to use the gRPC-Web Developer Tools with Blazor.</Description>
     <PackageId>Hona.Blazor.GrpcWeb.DevTools</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <PackageIcon>icon.png</PackageIcon>
     <Authors>Patrick Jahr</Authors>
     <Company>PatrickJahr</Company>
@@ -39,6 +39,7 @@
     <PackageReference Include="protobuf-net.Grpc.ClientFactory" Version="1.1.1" />
     <PackageReference Include="Microsoft.JSInterop" Version="7.0.17" Condition="'$(TargetFramework)' == 'net7.0'" />
     <PackageReference Include="Microsoft.JSInterop" Version="8.0.3" Condition="'$(TargetFramework)' == 'net8.0'" />
+    <PackageReference Include="Microsoft.JSInterop" Version="9.0.0" Condition="'$(TargetFramework)' == 'net9.0'" />
   </ItemGroup>
 
 </Project>
